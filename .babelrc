@@ -1,0 +1,9 @@
+{
+  "presets": ["es2015", "stage-0", "react"],
+  "plugins": [
+    "transform-decorators-legacy",
+    "array-includes",
+    ["transform-runtime", { "polyfill": false, "regenerator": true }]
+  ]
+}
+

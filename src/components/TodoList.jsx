@@ -4,21 +4,20 @@ import { observer } from 'mobx-react'
 import TodoView from './TodoView'
 
 @observer
-class TodoList extends React.Component {
+export default class TodoList extends React.Component {
   render() {
-    const store = this.props.store;
+    const store = this.props.store
     return (
-      <div>
+      <div className="TodoList">
         { store.report }
         <ul>
         { store.todos.map(
-          (todo, idx) => <TodoView todo={ todo } key={ idx } />
+          todo => <TodoView todo={ todo } key={ todo.id } />
         ) }
         </ul>
-        { store.pendingRequests > 0 ? <marquee>Loading...</marquee> : null }
+        { store.pendingRequests > 0 ? <div>Loading...</div> : null }
         <button onClick={ this.onNewTodo }>New Todo</button>
         <small> (double-click a todo to edit)</small>
-        <RenderCounter />
       </div>
     );
   }
